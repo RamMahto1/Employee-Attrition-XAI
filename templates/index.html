@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Attrition Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1e1e2f;
+            color: #f0f0f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: #2c2c4c;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px #000;
+            width: 500px;
+        }
+        h2 {
+            text-align: center;
+            color: #ffd700;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        input, select {
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: none;
+        }
+        input[type="submit"] {
+            background-color: #ffd700;
+            color: #2c2c4c;
+            font-weight: bold;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #ffea00;
+        }
+        .result {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 18px;
+            color: #00ff99;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Employee Attrition Prediction</h2>
+        <form method="POST" action="/predict">
+            {% for feature in features %}
+                <label>{{ feature }}</label>
+                <input type="text" name="{{ feature }}" placeholder="Enter {{ feature }}">
+            {% endfor %}
+            <input type="submit" value="Predict">
+        </form>
+        <div class="result">
+            {% if prediction_text %}
+                {{ prediction_text }}
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

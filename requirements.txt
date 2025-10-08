@@ -6,6 +6,6 @@ seaborn
 xgboost
 catboost
 imbalanced-learn
-
+flask
 
 #-e .
